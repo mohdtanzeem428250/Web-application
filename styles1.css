@@ -1,0 +1,157 @@
+.container
+{
+    padding: 10px;
+    min-height: 100vh;
+    width: 100%;
+    background: #00fbff;
+    /* margin-left: 500px; */
+}
+.login
+{
+    height: 35px;
+    width: 800px;
+    background: #fff;
+    padding: 0px;
+    margin-left: 250px;
+    margin-top: 200px;
+    font-size: 30px;
+    font-style:normal;
+}
+.password
+{
+    height: 35px;
+    width: 800px;
+    background: #fff;
+    padding: 0px;
+    margin-left: 250px;
+    margin-top: 25px;
+    font-size: 30px;
+    font-style:normal;
+}
+.confirm-password
+{
+    height: 35px;
+    width: 800px;
+    background: #fff;
+    padding: 0px;
+    margin-left: 250px;
+    margin-top: 25px;
+    font-size: 30px;
+    font-style:normal;
+}
+.name
+{
+    height: 35px;
+    width: 800px;
+    background: #fff;
+    padding: 0px;
+    margin-left: 250px;
+    margin-top: 25px;
+    font-size: 30px;
+    font-style:normal;
+}
+.address
+{
+    height: 35px;
+    width: 800px;
+    background: #fff;
+    padding: 0px;
+    margin-left: 250px;
+    margin-top: 25px;
+    font-size: 30px;
+    font-style:normal;
+}
+.city
+{
+    height: 35px;
+    width: 800px;
+    background: #fff;
+    padding: 0px;
+    margin-left: 250px;
+    margin-top: 25px;
+    font-size: 30px;
+    font-style:normal;
+}
+.phone
+{
+    height: 35px;
+    width: 800px;
+    background: #fff;
+    padding: 0px;
+    margin-left: 250px;
+    margin-top: 25px;
+    font-size: 30px;
+    font-style:normal;
+}
+.email
+{
+    height: 35px;
+    width: 800px;
+    background: #fff;
+    padding: 0px;
+    margin-left: 250px;
+    margin-top: 25px;
+    font-size: 30px;
+    font-style:normal;
+}
+/* .button
+{
+    height: 35px;
+    width: 800px;
+    background: aqua;
+    padding: 0px;
+    margin-left: 250px;
+    margin-top: 25px;
+    font-size: 30px;
+    font-style:normal;
+    margin-left: 550px;
+} */
+button
+{
+    margin-left: 550px;
+    margin-top: 40px;
+    background: #ff3300;
+    width: 200px;
+    height: 45px;
+    font-size: 35px;
+    border-radius: 20px;
+    /* border: black; */
+}
+button:hover
+{
+    box-shadow: 0px 0px 50px #010007;
+}
+.login input
+{
+    height: 23px;
+    width: 440px;
+    margin-left: 203px;
+    transform: translateX(10px);
+}
+.login input::placeholder
+{
+    font-size: 18px;
+    color: black;
+}
+.password input
+{
+    height: 23px;
+    width: 340px;
+    margin-left: 203px;
+}
+.password input::placeholder
+{
+    font-size: 18px;
+    color: black;
+}
+.confirm-password input
+{
+    height: 23px;
+    width: 240px;
+    margin-left: 203px;
+}
+.confirm-password input::placeholder
+{
+    font-size: 18px;
+    color: black;
+}
