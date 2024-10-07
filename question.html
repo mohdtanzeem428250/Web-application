@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz's Computer Fundamental</title>
+    <style>
+        *
+        {
+            margin: 0px;
+            padding: 0px;
+            font-family: 'Poppins',sans-serif;
+            box-sizing: border-box;
+        }
+        body
+        {
+            background: aqua;
+        }
+        .computer_fundamental
+        {
+            background: #fff;
+            width: 90%;
+            max-width: 1000px;
+            margin: 100px auto 0;
+            border-radius: 10px;
+            padding: 30px;
+        }
+        .computer_fundamental h1
+        {
+            font-weight: 25px;
+            color: #001e4d;
+            font-weight: 600;
+            border-bottom: 1px solid black;
+            padding-bottom: 30px;
+            text-align: center;
+        }
+        .quiz
+        {
+            padding: 20px 0;
+        }
+        .quiz h2
+        {
+            font-size: 22px;
+            color: #001e4d;
+            font-weight: 600;
+        }
+        .btn
+        {
+            background-color: #fff;
+            color: #222;
+            font-weight: 500;
+            width: 100%;
+            border: 1px solid black;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: left;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .btn:hover
+        {
+            background: #222;
+            color: #fff;
+        }
+        .next-button
+        {
+            background: #001e4d;
+            color: #fff;
+            font-weight: 500;
+            width: 150px;
+            border: 0;
+            padding: 10px;
+            margin: 20px auto 0;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+        }
+        .corrent
+        {
+            background: #9aeabc;
+        }
+        .incorrect
+        {
+            background: #ff9393;
+        }
+    </style>
+</head>
+<body>
+    <div class="computer_fundamental">
+        <h1>Computer Fundamental Quizes</h1>
+        <div class="quiz">
+            <h2 id="question">Question Goes here</h2>
+            <div id="answer-buttons">
+                <button class="btn">Answer 1</button>
+                <button class="btn">Answer 1</button>
+                <button class="btn">Answer 1</button>
+                <button class="btn">Answer 1</button>
+            </div>
+                <button id="next-btn">Next</button>
+        </div>
+    </div>
+    <script>
+        const questions=
+        [
+            {
+                1: "which",
+                answers:
+                [
+                    {text:"sa",correct:false},
+                    {text:"sw",correct:false},
+                    {text:"se",correct:true},
+                    {text:"st",correct:false},
+                ]
+            },
+            {
+                2: "which All",
+                answers:
+                [
+                    {text:"sa",correct:false},
+                    {text:"sw",correct:true},
+                    {text:"se",correct:false},
+                    {text:"st",correct:false},
+                ]
+            }
+        ];
+        const questionElement=document.getElementById("question");
+        const answerButton=document.getElementById("answer-button");
+        const nextButton=document.getElementById("next-btn");
+
+        let currentQuestionIndex=0;
+        let score=0;
+        function resetState()
+        {
+            nextButton.style.display="flex";
+            while(answerButtons.firstChild)
+            {
+                answerButtons.removeChild(answerButtons.firstChild);
+            }
+        }
+        let questionNo=0;
+        let currentQuestion=0;
+        function showQuestion()
+        {
+            resetState();
+            currentQuestion=questions[currentQuestionIndex];
+            questionNo=currentQuestionIndex+1;
+            questionElement.innerHTML=questionNo+", "+currentQuestion.question;
+            currentQuestion.answers.forEach(answer =>
+            {
+                const button=document.createElement("button");
+                button.innerHTML=answer.text;
+                button.classList.add("btn");
+                answerButton.appendChild(button);
+                if(answer.corrent)
+                {
+                    button.dataset.corrent=answer.corrent;
+                    showQuestion();
+                }
+                button.addEventListener("click", selectAnswer);
+            });
+
+        }
+        function startQuiz()
+        {
+            currentQuestionIndex+=1;
+            score+=1;
+            nextButton.innerHTML="Next";
+            showQuestion();
+        }
+        function selectAnswer(e)
+        {
+            const selectedBtn=e.target;
+            const isCorrect=selectedBtn.dataset.correct==="true";
+            if(isCorrect)
+            {
+                selectedBtn.classList.add("correct");
+            }
+            else
+            {
+                selectedBtn.classList.add("incorrect");
+            }
+        }
+        startQuiz();
+    </script>
+</body>
+</html>
