@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Quiz</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 100px;
+}
+
+.quiz-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: yellow;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 60px;
+    color: red;
+}
+
+.option {
+    margin: 10px 0;
+    padding: 10px;
+    background: #e0e0e0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.option:hover {
+    background: #d0d0d0;
+}
+
+.hidden {
+    display: none;
+}
+
+#next-button {
+    display: none;
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.div
+{
+    font-size: 25px;
+}
+.quiz-container .icon
+{
+    transform: translate(970px,265px); 
+}
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <ion-icon name="checkbox-outline" class="icon" id="iconid"></ion-icon>
+        <h1 id="heading">Computer Fundamental Quizes</h1>
+        <div id="question" class="div"></div>
+        <div id="options"></div>
+        <button id="next-button" onclick="nextQuestion()">Next Question</button>
+        <div id="score" class="hidden"></div>
+    </div>
+    <script>
+        const questions = [
+    {
+        question: "1. Who is the father of Computers?",
+        options: [" James Gosling", "Charles Babbage", "Dennis Ritchie", "Bjarne Stroustrup"],
+        answer: 1 // index of the correct answer
+    },
+    {
+        question: "2. Which of the following is the correct abbreviation of COMPUTER?",
+        options: ["Commonly Occupied Machines Used in Technical and Educational Research", "Commonly Operated Machines Used in Technical and Environmental Research", "Commonly Oriented Machines Used in Technical and Educational Research", "Commonly Operated Machines Used in Technical and Educational Research"],
+        answer: 3
+    },
+    {
+        question: "3. Which of the following is the correct definition of Computer?",
+        options: ["Computer is a machine or device that can be programmed to perform arithmetical or logic operation sequences automatically", "Computer understands only binary language which is written in the form of 0s & 1s", "Computer is a programmable electronic device that stores, retrieves, and processes the data", "All of the mentioned"],
+        answer: 3
+    },
+    {
+        question: "4. What is the full form of CPU?",
+        options: ["Computer Processing Unit", "Computer Principle Unit", "Central Processing Unit", "Control Processing Unit"],
+        answer: 2
+    },
+    {
+        question: "5. Which of the following language does the computer understand?",
+        options: ["Computer understands only C Language", "Computer understands only Assembly Language", " Computer understands only Binary Language", "Computer understands only BASIC"],
+        answer: 2
+    },
+    {
+        question: "6. Which of the following computer language is written in binary codes only?",
+        options: ["pascal", "machine language", "C", "C#"],
+        answer: 1
+    },
+    {
+        question: "7. Which of the following is the brain of the computer?",
+        options: ["Central Processing Unit", "Memory", "Arithmetic and Logic unit", "Control unit"],
+        answer: 0
+    },
+    {
+        question: "8. Which of the following is not a characteristic of a computer?",
+        options: ["Versatility", "Accuracy", "Diligence", "I.Q."],
+        answer: 3
+    },
+    {
+        question: "9. Which of the following is the smallest unit of data in a computer?",
+        options: ["Bit", "KB", "Nibble", "Byte"],
+        answer: 0
+    },
+    {
+        question: "10. Which of the following unit is responsible for converting the data received from the user into a computer understandable format?",
+        options: ["Output Unit", "Input Unit", "Memory Unit", "Arithmetic & Logic Unit"],
+        answer: 1
+    },
+    {
+        question: "11. Which of the following monitor looks like a television and are normally used with non-portable computer systems?",
+        options: ["LED", "LCD", "CRT", "Flat Panel Monitors"],
+        answer: 2
+    },
+    {
+        question: "12. Which of the following is not a type of computer code?",
+        options: ["EDIC", "ASCII", "BCD", "EBCDIC"],
+        answer: 0
+    },
+    {
+        question: "13. Which of the following part of a processor contains the hardware necessary to perform all the operations required by a computer?",
+        options: ["Controller", "Register", "Cache", "Data Path"],
+        answer: 3
+    },
+    {
+        question: "14. Which of the following is designed to control the operations of a computer?",
+        options: ["User", "Application Software", "System Software", "Utility Software"],
+        answer: 2
+    },
+    {
+        question: "15. Which of the following device use positional notation to represent a decimal number?",
+        options: ["Pascaline", "Abacus", "Computer", "Calculator"],
+        answer: 1
+    },
+    {
+        question: "16. Which of the following is used in EBCDIC?",
+        options: ["Super Computers", "Mainframes", "Machine Code", "Programming"],
+        answer: 1
+    },
+    {
+        question: "17. Which of the following are physical devices of a computer?",
+        options: ["Hardware", "Software", "System Software", "Package"],
+        answer: 0
+    },
+    {
+        question: "18. Which of the following defines the assigned ordering among the characters used by the computer?",
+        options: ["Accumulation", "Sorting", "Collating Sequence", "Unicode"],
+        answer: 2
+    },
+    {
+        question: "19. Which of the following storage is a system where a robotic arm will connect or disconnect off-line mass storage media according to the computer operating system demands?",
+        options: ["Magnetic", "Secondary", "Virtual", "Tertiary"],
+        answer: 3
+    },
+    {
+        question: "20. Which of the following is known as the interval between the instant a computer makes a request for the transfer of data from a disk system to the primary storage and the instance the operation is completed?",
+        options: ["Disk utilization time", "Drive utilization time", "Disk access time", "Disk arrival time"],
+        answer: 3
+    },
+    {
+        question: "21. Which of the following devices provides the communication between a computer and the outer world?",
+        options: ["Compact", "I/O", "Drivers", "Storage"],
+        answer: 1
+    },
+    {
+        question: "22. Which of the following are the input devices that enable direct data entry into a computer system from source documents?",
+        options: ["System Access devices", "Data acquiring devices","Data retrieving devices", "Data Scanning devices"],
+        answer: 3
+    },
+    {
+        question: "23. Which of the following is the device used for converting maps, pictures, and drawings into digital form for storage in computers?",
+        options: ["Image Scanner", "Digitizer", "MICR", "Scanner"],
+        answer: 1
+    },
+    {
+        question: "24. Which of the following can access the server?",
+        options: ["Web Client", "User", "Web Browser", "Web Server"],
+        answer: 0
+    },
+    {
+        question: "25. Which of the following can access the server?",
+        options: ["High lavel", "BASIC","C","Machine"],
+        answer: 3
+    },
+];
+
+let currentQuestionIndex = 0;
+let score = 0;
+
+function loadQuestion() {
+    const currentQuestion = questions[currentQuestionIndex];
+    document.getElementById('question').innerText = currentQuestion.question;
+
+    const optionsContainer = document.getElementById('options');
+    optionsContainer.innerHTML = '';
+
+    currentQuestion.options.forEach((option, index) => {
+        const optionElement = document.createElement('div');
+        optionElement.className = 'option';
+        optionElement.innerText = option;
+        optionElement.onclick = () => selectOption(index);
+        optionsContainer.appendChild(optionElement);
+    });
+
+    document.getElementById('next-button').style.display = 'none';
+}
+
+function selectOption(selectedIndex) {
+    const currentQuestion = questions[currentQuestionIndex];
+    if (selectedIndex === currentQuestion.answer) {
+        score++;
+    }
+
+    document.getElementById('next-button').style.display = 'block';
+    const options = document.getElementsByClassName('option');
+    for (let i = 0; i < options.length; i++) {
+        options[i].style.pointerEvents = 'none'; // Disable options after selection
+        if (i === currentQuestion.answer) {
+            options[i].style.backgroundColor = 'green'; // Green for correct answer
+        } else {
+            // options[i].style.backgroundColor = 'red'; // Red for wrong answer
+        }
+    }
+}
+// const heading1=document.getElementById("heading");  
+function nextQuestion() {
+    currentQuestionIndex++;
+    // let i=0;
+    // i++;
+    // if()
+    // heading1.innerHTML=`<h1>Computer Fundamental Quizes ${i}</h1>`;
+    if (currentQuestionIndex < questions.length) {
+        loadQuestion();
+    } else {
+        showScore();
+    }
+}
+
+function showScore() {
+    document.querySelector('.quiz-container').innerHTML = `
+        <h1>Your Score</h1>
+        <div id="score">You scored ${score} out of ${questions.length}</div>
+    `;
+}
+
+// Load the first question
+loadQuestion();
+
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
