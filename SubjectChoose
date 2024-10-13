@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .top-image{
+            margin: 0px;
+            padding:0px;
+            position: fixed;
+            display: flex;
+            width: 1500px;
+            height: 1000px;  
+            /* border: 2px solid black; */
+        }
+        .text{
+            display: flex;
+            width:1450px;
+            transform: translateX(100px);
+            font-size: 30px;
+            color: red;
+            font-style: italic;
+            background: yellow;
+            height: 100px;
+            margin-top: 10px;
+            margin-left: -99px;
+        }
+        a
+        {
+            display: flex;
+            transform: translateX(100px);
+            font-size: 30px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+            margin-left: -120px;
+        }
+        .title h1
+        {
+            display: flex;
+            transform: translateX(100px);
+            font-size: 30px;
+            color: black;
+            margin-left: 80px;
+            height: 30px;
+            width: 1450px;
+            background: aqua;
+            margin-left: -99px;
+            justify-content: center;
+            align-items: center;
+        }
+        .res
+        {
+            display: flex;
+            transform: translateX(100px);
+            font-size: 30px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            margin-left: -250px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://www.rathinamcollege.edu.in/wp-content/uploads/2021/02/exam-rules-410x205.png" alt="" class="top-image">
+    </div>
+    <div class="text">
+       <marquee scrollamount="20" direction="right"><h3>ONLINE--EXAMINATION--HUB</h3></marquee>
+   </div>
+   <div class="title">
+        <h1>Welcome To Online Exam</h1>
+   </div>
+   <!-- <div class="link"> -->
+     <a href="E:/HTML/subjects.html">Subject For Quiz</a><br><br>
+     <a href="url" class="res">Result</a>
+    <!-- </div> -->
+</body>
+</html>
