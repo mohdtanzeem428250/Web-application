@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body
+        {
+            background-color: #009688;
+            /* background-color: #ffccbb; */
+        }
+        h1
+        {
+            color: #009688;
+            font-size: 50px;
+        }
+        .result-box
+        {
+            text-align: center;
+            justify-content: center;
+            margin-top: 50px;
+            margin-left: 280px;
+            background-color: #ffccbb;
+            width: 800px;
+            border-radius: 2rem;
+        }
+        .result-box table td
+        {
+            border: 2px solid #010101;
+            padding: 8px 15px;
+            font-size: 20px;
+            color: #000000;
+            width: 50%;
+            height: 20px;
+            text-align: left;
+        }
+        .result-box table
+        {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+        .btn
+        {
+            margin-bottom: 30px;
+            height: 45px;
+            width: 250px;
+            background-color: #009688;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: #ffccbb;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-box">
+        <h1>Quiz Result</h1>
+        <table>
+            <tr>
+                <td>Name Of The Student</td>
+                <td><span class="total-question">Mohd Tanzeem</span></td>
+            </tr>
+            <tr>
+                <td>Subject Name</td>
+                <td><span class="total-question">Computer Fondamental</span></td>
+            </tr>
+            <tr>
+                <td>Total Questions</td>
+                <td><span class="total-question">25</span></td>
+            </tr>
+            <tr>
+                <td>Attempt</td>
+                <td><span class="total-question">25</span></td>
+            </tr>
+            <tr>
+                <td>Correct</td>
+                <td><span class="total-question">22</span></td>
+            </tr>
+            <tr>
+                <td>Wrong</td>
+                <td><span class="total-question">3</span></td>
+            </tr>
+            <tr>
+                <td>Percentage</td>
+                <td><span class="total-question">88.00%</span></td>
+            </tr>
+            <tr>
+                <td>Your Total Score</td>
+                <td><span class="total-question">25/22</span></td>
+            </tr>
+        </table>
+        <button class="btn">Get Certificate</button>
+    </div>
+</body>
+</html>
