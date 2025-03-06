@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Language Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 50px;
+        }
+
+        .quiz-container {
+            max-width: 800px;
+            margin: auto;
+            background: yellow;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 30px;
+            color: red;
+        }
+
+        .option {
+            margin: 10px 0;
+            padding: 10px;
+            background: #e0e0e0;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            background: #d0d0d0;
+        }
+
+        .correct {
+            background-color: green !important;
+            color: white;
+        }
+
+        .wrong {
+            background-color: red !important;
+            color: white;
+        }
+
+        #next-button {
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .show {
+            display: none;
+            margin-top: 20px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="quiz-container">
+        <h1>JavaScript Language Quiz</h1>
+        <div id="question"></div>
+        <div id="options"></div>
+        <button id="next-button" onclick="nextQuestion()">Next Question</button>
+    </div>
+    <div class="show" id="result-box">
+        <h2>Quiz Result</h2>
+        <input type="text" id="studentName" readonly>
+        <input type="text" id="subjectName" readonly>
+        <input type="text" id="totalQuestions" readonly>
+        <input type="text" id="attempted" readonly>
+        <input type="text" id="correct" readonly>
+        <input type="text" id="wrong" readonly>
+        <input type="text" id="percentage" readonly>
+        <input type="text" id="score" readonly>
+    </div>
+    <div class="welcome">
+        <script>
+            let studentName = "";
+            const urlParams = new URLSearchParams(window.location.search);
+            const name = urlParams.get('name');
+            const storedName = localStorage.getItem("username");
+            studentName = storedName;
+
+        </script>
+    </div>
+    <script>
+        let allQuestions = 
+        [
+  { "question": "Who invented JavaScript?", "options": ["Brendan Eich", "Tim Berners-Lee", "James Gosling", "Guido van Rossum"], "answer": "Brendan Eich" },
+  { "question": "What does 'DOM' stand for in JavaScript?", "options": ["Document Object Model", "Data Object Management", "Digital Output Model", "Dynamic Output Management"], "answer": "Document Object Model" },
+  { "question": "Which method is used to add a new element to the end of an array in JavaScript?", "options": ["push()", "pop()", "shift()", "unshift()"], "answer": "push()" },
+  { "question": "What does JSON stand for?", "options": ["JavaScript Object Notation", "Java Standard Object Notation", "JavaScript Online Notation", "Just Standard Object Notation"], "answer": "JavaScript Object Notation" },
+  { "question": "Which company developed JavaScript?", "options": ["Netscape", "Mozilla", "Microsoft", "Google"], "answer": "Netscape" },
+  { "question": "Which of the following is NOT a JavaScript data type?", "options": ["boolean", "number", "integer", "string"], "answer": "integer" },
+  { "question": "How do you create a function in JavaScript?", "options": ["function myFunction() {}", "function = myFunction()", "create function myFunction()", "def myFunction():"], "answer": "function myFunction() {}" },
+  { "question": "What will the following code return? Boolean(10 > 9)", "options": ["true", "false", "undefined", "NaN"], "answer": "true" },
+  { "question": "What does the '==' operator do in JavaScript?", "options": ["Compares values", "Compares values and types", "Assigns values", "Performs addition"], "answer": "Compares values" },
+  { "question": "What is the output of the following code? console.log(typeof 42)", "options": ["number", "string", "undefined", "object"], "answer": "number" },
+  { "question": "Which function is used to parse a string into an integer in JavaScript?", "options": ["parseInt()", "parseFloat()", "toString()", "parse()"], "answer": "parseInt()" },
+  { "question": "Which of the following is an example of a JavaScript object?", "options": ["{name: 'John', age: 30}", "['apple', 'banana', 'cherry']", "10", "true"], "answer": "{name: 'John', age: 30}" },
+  { "question": "How do you declare a variable in JavaScript?", "options": ["var", "let", "const", "All of the above"], "answer": "All of the above" },
+  { "question": "What will console.log(2 + '2') output?", "options": ["22", "4", "NaN", "undefined"], "answer": "22" },
+  { "question": "How do you stop the execution of a JavaScript function?", "options": ["exit", "return", "break", "stop"], "answer": "return" },
+  { "question": "Which method is used to remove the last element of an array in JavaScript?", "options": ["pop()", "shift()", "unshift()", "push()"], "answer": "pop()" },
+  { "question": "What does the setTimeout() function do in JavaScript?", "options": ["Delays execution of a function", "Repeats a function at intervals", "Sets a variable", "Stops a function"], "answer": "Delays execution of a function" },
+  { "question": "Which of the following is NOT a JavaScript loop?", "options": ["for", "while", "do while", "foreach"], "answer": "foreach" },
+  { "question": "Which of the following is a primitive data type in JavaScript?", "options": ["null", "undefined", "number", "All of the above"], "answer": "All of the above" },
+  { "question": "What is the result of 2 == '2' in JavaScript?", "options": ["true", "false", "NaN", "undefined"], "answer": "true" },
+  { "question": "What is the difference between null and undefined in JavaScript?", "options": ["null is an object, undefined is a type", "undefined is a value, null is an object", "There is no difference", "undefined is a variable, null is an object"], "answer": "null is an object, undefined is a type" },
+  { "question": "What is a closure in JavaScript?", "options": ["A function that remembers its lexical scope", "A type of loop", "A method for creating objects", "None of the above"], "answer": "A function that remembers its lexical scope" },
+  { "question": "What will console.log([] == false) output?", "options": ["true", "false", "undefined", "NaN"], "answer": "true" },
+  { "question": "What will typeof null return in JavaScript?", "options": ["object", "null", "undefined", "boolean"], "answer": "object" },
+  { "question": "Which of the following is used to define a constant in JavaScript?", "options": ["let", "const", "var", "static"], "answer": "const" },
+  { "question": "Which symbol is used for single-line comments in JavaScript?", "options": ["//", "/*", "<!--", "#"], "answer": "//" },
+  { "question": "How do you write a JavaScript array?", "options": ["[]", "{}", "<>", "()"], "answer": "[]" },
+  { "question": "What does this refer to in JavaScript?", "options": ["The current object", "A reference to the parent object", "The global object", "None of the above"], "answer": "The current object" },
+  { "question": "Which method is used for concatenating strings in JavaScript?", "options": [".concat()", ".join()", "+", "append()"], "answer": "+" },
+  { "question": "Which JavaScript method is used to join two or more arrays?", "options": ["concat()", "merge()", "append()", "push()"], "answer": "concat()" },
+  { "question": "Which operator is used for assignment in JavaScript?", "options": ["=", "==", "===", "=>"], "answer": "=" },
+  { "question": "What is the default value of an uninitialized variable in JavaScript?", "options": ["undefined", "null", "NaN", "0"], "answer": "undefined" },
+  { "question": "Which JavaScript event is triggered when an element is clicked?", "options": ["onclick", "onload", "onmouseover", "All of the above"], "answer": "onclick" },
+  { "question": "Which method is used to find the length of a string in JavaScript?", "options": [".size", ".length", ".getSize", ".count"], "answer": ".length" },
+  { "question": "Which of the following is the correct way to define a JavaScript class?", "options": ["class MyClass {}", "class MyClass()", "function MyClass {}", "MyClass: function(){}"], "answer": "class MyClass {}" },
+  { "question": "How do you create a new instance of a class in JavaScript?", "options": ["new MyClass()", "MyClass.new()", "create MyClass()", "MyClass()"], "answer": "new MyClass()" },
+  { "question": "Which of the following is used for defining a JavaScript object?", "options": ["{name: 'John', age: 30}", "[name: 'John', age: 30]", "(name: 'John', age: 30)", "('John', 30)"], "answer": "{name: 'John', age: 30}" },
+  { "question": "Which method is used to check if a variable is an array in JavaScript?", "options": ["Array.isArray()", "isArray()", "checkArray()", "typeof"], "answer": "Array.isArray()" },
+  { "question": "What is the use of bind() in JavaScript?", "options": ["Creates a new function with a specific this value", "Adds an event listener", "Creates a new array", "Binds an object to a function"], "answer": "Creates a new function with a specific this value" },
+  { "question": "Which JavaScript method is used to find the first occurrence of an element in an array?", "options": ["indexOf()", "find()", "search()", "lastIndexOf()"], "answer": "indexOf()" },
+  { "question": "Which function is used to trigger an event in JavaScript?", "options": ["trigger()", "dispatchEvent()", "fire()", "sendEvent()"], "answer": "dispatchEvent()" },
+  { "question": "What is the window object in JavaScript?", "options": ["Represents the browser window", "Represents a global object", "Represents the console", "Represents the DOM"], "answer": "Represents the browser window" },
+  { "question": "Which JavaScript method is used to replace a substring in a string?", "options": [".replace()", ".substring()", ".split()", ".join()"], "answer": ".replace()" },
+  { "question": "How do you prevent a form from submitting in JavaScript?", "options": ["event.preventDefault()", "return false;", "form.preventDefault()", "Both A and B"], "answer": "Both A and B" },
+  { "question": "Who invented JavaScript?", "options": ["Brendan Eich", "Tim Berners-Lee", "James Gosling", "Guido van Rossum"], "answer": "Brendan Eich" },
+  { "question": "What is the default value of an uninitialized variable in JavaScript?", "options": ["undefined", "null", "NaN", "0"], "answer": "undefined" },
+  { "question": "Which method is used to add a new element to the end of an array in JavaScript?", "options": ["push()", "pop()", "shift()", "unshift()"], "answer": "push()" },
+  { "question": "What will the following code return? Boolean(10 > 9)", "options": ["true", "false", "undefined", "NaN"], "answer": "true" },
+  { "question": "Which of the following is used for creating a function in JavaScript?", "options": ["function myFunction() {}", "create function myFunction()", "def myFunction()", "func myFunction()"], "answer": "function myFunction() {}" }
+
+        ];
+        let questions = allQuestions.sort(() => Math.random() - 0.5).slice(0, 25);
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let attempted = 0;
+        let correct = 0;
+        let wrong = 0;
+        let subjectName = "C Programming";
+        function loadQuestion() {
+            let currentQuestion = questions[currentQuestionIndex];
+            document.getElementById('question').innerHTML = `Q${currentQuestionIndex + 1}. ${currentQuestion.question}`;
+
+            let optionsContainer = document.getElementById('options');
+            optionsContainer.innerHTML = '';
+
+
+            let shuffledOptions = [...currentQuestion.options].sort(() => Math.random() - 0.5);
+
+            shuffledOptions.forEach(option => {
+                let optionElement = document.createElement('div');
+                optionElement.className = 'option';
+                optionElement.innerText = option;
+                optionElement.onclick = () => selectOption(optionElement, option);
+                optionsContainer.appendChild(optionElement);
+            });
+
+            document.getElementById('next-button').style.display = 'none';
+        }
+
+        function selectOption(element, selectedOption) {
+            let currentQuestion = questions[currentQuestionIndex];
+            document.querySelectorAll('.option').forEach(opt => opt.style.pointerEvents = 'none');
+            attempted++;
+            if (selectedOption === currentQuestion.answer) {
+                correct++;
+                score += 10;
+                element.classList.add('correct');
+            }
+            else {
+                wrong++;
+                element.classList.add('wrong');
+                document.querySelectorAll('.option').forEach(opt => {
+                    if (opt.innerText === currentQuestion.answer) {
+                        opt.classList.add('correct');
+                    }
+                });
+            }
+            document.getElementById('next-button').style.display = 'block';
+        }
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) loadQuestion();
+            else {
+                saveResult();
+                showResult();
+
+            }
+        }
+        function saveResult() {
+            let percentage = (correct / questions.length) * 100;
+
+            fetch('save_result.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    student_name: studentName,
+                    subject_name: subjectName,
+                    total_questions: questions.length,
+                    attempted: attempted,
+                    correct: correct,
+                    wrong: wrong,
+                    percentage: percentage.toFixed(2),
+                    total_score: score
+                })
+            })
+        }
+        function showResult() {
+            let percentage = (correct / questions.length) * 100;
+            document.getElementById('studentName').value = "Student Name: " + studentName;
+            document.getElementById('subjectName').value = "Subject: " + subjectName;
+            document.getElementById('totalQuestions').value = "Total Questions: " + questions.length;
+            document.getElementById('attempted').value = "Attempted: " + attempted;
+            document.getElementById('correct').value = "Correct: " + correct;
+            document.getElementById('wrong').value = "Wrong: " + wrong;
+            document.getElementById('percentage').value = "Percentage: " + percentage.toFixed(2) + "%";
+            document.getElementById('score').value = "Score: " + score;
+            document.querySelector('.quiz-container').style.display = 'none';
+            document.getElementById('result-box').style.display = 'block';
+
+        }
+        loadQuestion();
+    </script>
+</body>
+
+</html>
