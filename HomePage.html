@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <title>Navbar with Right-Aligned Items</title>
+  <style>
+    body
+    {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    /* Navbar Styling */
+    .navbar {
+      display: flex;
+      justify-content: space-between; /* Left side for logo, right side for links */
+      align-items: center;
+      background:#009688!important;
+      padding: 10px 20px;
+      position: fixed;
+      width: 97%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar .logo {
+      color: white;
+      font-size: 30px;
+      text-decoration: none;
+    }
+
+
+    .navbar-links {    /*chal*/
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+    }
+
+    .navbar-links li {
+      margin-left: 20px;
+    }
+
+    .navbar-links a {
+      color: white;
+      text-decoration: none;/*chal*/
+      font-size: 18px;
+      padding: 10px;
+      transition: background-color 0.3s;
+    }
+    .navbar-links {
+  /* background-color: #333; */
+  overflow: hidden;
+  text-align: center;
+}
+.navbar-links a {
+  display: inline-block;
+  color: white;
+  padding: 14px 20px;
+  text-decoration: none;
+  font-size: 18px;
+  position: relative;
+  transition: color 0.3s;
+  font-size: 22px;
+}
+/* Hover Effect */
+.navbar-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  background-color: black;
+  left: 50%;
+  bottom: 0;
+  transition: width 0.3s, left 0.3s;
+}
+.navbar-links a:hover {
+  color: black;
+}
+.navbar-links a:hover::after {
+  width: 100%;
+  left: 0;
+}
+.image-container {
+  perspective: 1000px;
+}
+/* .image { */
+    /* margin-top: 50px; */
+  /* width: 1400px; */
+  /* height: 1200px; */
+  /* object-fit: cover; */
+  /* transition: transform 0.5s; */
+/* } */
+.image:hover {
+  transform: rotateY(20deg) rotateX(10deg);
+}
+.image
+{
+    margin-top: 80px;
+    width: -1000px;
+    /* position: fixed; */
+}
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+
+
+/* Footer Content Styling */
+.footer-content {
+    text-align: center;
+}
+
+/* Social Links Styling */
+.social-links {
+    list-style: none;
+    padding: 0;
+}
+
+.social-links li {
+    display: inline;
+    margin-right: 15px;
+}
+
+.social-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.social-links a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Text Styling */
+.footer p {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+
+
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="animate__animated animate__bounceIn" style="color:white">
+        <h1>ONLINE EXAMINATION SYSTEM</h1>
+      </div>
+
+    <!-- Hamburger Menu for Mobile -->
+
+    <!-- Navbar Links -->
+    <ul class="navbar-links" id="navbar-links">
+      <li><a href="#">HOME</a></li>
+      <li><a href="#">ABOUT</a></li>
+      <li><a href="#">LOGIN</a></li>
+      <li><a href="#">REGISTRATION</li>
+    </ul>
+  </div>
+  <div class="container-image">
+    <img class="image" src="https://thinkexam.com/blog/wp-content/uploads/2020/01/scope-of-online-examination-system-in-india.png" alt="" width="1350px" height="1000px">
+  </div>
+  <footer class="footer">
+    <div class="footer-content">
+        <p style="color:white">&copy; 2025 My Website. All rights reserved.</p>
+        <ul class="social-links">
+            <li><a href="#" target="_blank">Facebook</a></li>
+            <li><a href="#" target="_blank">Twitter</a></li>
+            <li><a href="#" target="_blank">Instagram</a></li>
+        </ul>
+    </div>
+</footer>
+
+</body>
+</html>
