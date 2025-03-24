@@ -1,0 +1,117 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Student Project</title>
+  </head>
+  <body>
+
+  
+  
+  
+  
+  
+  
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Student Management System</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="login">Login</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link" href="register">Register</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<div class="text-center col">
+<img src="https://static.javatpoint.com/blog/images/student-management-system.png" style="weight:50px">
+</div>
+ 
+ 
+ <footer class="bg-dark text-light">
+ 	<div class="container px-4">
+ 		<div class="row">
+ 			<div class="col-6 col-lg-4">
+ 				<h4 class="pt-3 fw-bold">Coding Seekho</h4>
+ 				<p>Lorem ipsum dolor sit amet, container and overviews</p>
+ 				<p>6398428250</p>
+ 			</div>
+ 			<div class="col">
+ 				<h4 class="pt-3">Menu</h4>
+ 				<ul class="list-unstyled">
+ 					<li><a href="#" class="text-decoration-none text-light">Link</a></li>
+ 					<li><a href="#" class="text-decoration-none text-light">Link</a></li>
+ 					<li><a href="#" class="text-decoration-none text-light">Link</a></li>
+ 					<li><a href="#" class="text-decoration-none text-light">Link</a></li>
+ 				</ul>
+ 			</div>
+ 			<div class="col">
+ 				<h4 class="pt-3">More</h4>
+ 				<ul class="list-unstyled">
+ 					<li><a href="#" class="text-decoration-none text-light">Link</a></li>
+ 					<li><a href="#" class="text-decoration-none text-light">Link</a></li>
+ 				</ul>
+ 			</div>
+ 			<div class="col">
+ 				<h4 class="pt-3">Categories</h4>
+ 				<ul class="list-unstyled">
+ 					<li><a href="#" class="text-decoration-none text-light">Link</a></li>
+ 					<li><a href="#" class="text-decoration-none text-light">Link</a></li>
+ 					<li><a href="#" class="text-decoration-none text-light">Link</a></li>
+ 					<li><a href="#" class="text-decoration-none text-light">Link</a></li>
+ 				</ul>
+ 			</div>
+ 			<div class="col-6 col-lg-3 text-lg-end">
+ 				<h4 class="pt-3">Secial Media Icons</h4>
+ 				<div>
+ 					<a href="#" class="text-decoration-none text-light"><i class="bi bi-instagram fs-6 me-80" style="font-size:45px"></i></a>
+ 					<a href="#" class="text-decoration-none text-light"><i class="bi bi-github fs-6 me-80" style="font-size:45px"></i></a>
+ 					<a href="https://www.linkedin.com/in/mohd-tanzeem-908161314?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="text-deco ration-none text-light"><i class="bi bi-linkedin fs-6 me-3" style="font-size:45px"></i></a>
+ 					<a href="https://www.youtube.com/@CodingSeekhoAurSeekhao-q2i" class="text-decoration-none text-light"><i class="bi bi-youtube fs-6 me-3" style="font-size:45px"></i></a>
+ 				</div>
+ 			</div>
+ 		</div>
+ 		<hr>
+ 		<div class="d-flex justify-content-between">
+ 			<p>2025 Coding Seekho Aur Seekhao. All Rights Reserved.</p>
+ 			<div>
+ 				<a href="#" class="text-decoration-none text-light me-4">Terms And Condition</a>
+ 				<a href="#" class="text-decoration-none text-light">Privacy Policy</a>
+ 			</div>
+ 		</div>
+ 	</div>
+ </footer>
+ 
+ 
+
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
